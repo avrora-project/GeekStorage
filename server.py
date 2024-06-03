@@ -15,7 +15,7 @@ class MainHandler (tornado.web.RequestHandler):
 			extension = os.path.splitext(file_name)[1]
 			finalName = str(uuid.uuid4()) + str(extension)
 			file_path_small = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-							     'images')
+							     'files')
 			file_path = os.path.join (file_path_small,finalName)
 			with open(file_path, 'wb') as f:
 				f.write(file['body'])
