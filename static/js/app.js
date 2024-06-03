@@ -68,13 +68,9 @@ function createNewCard(file, response) {
     img.id = 'img';
     img.src = file.dataURL;
 
-    var directLink = createLinkBlock('Прямая сслыка:', data.direct, 'directLink', 'link');
-    var markdownLink = createLinkBlock('Markdown:', data.markdown, 'markdownLink', 'link');
-    var htmlLink = createLinkBlock('HTML:', data.html, 'htmlLink', 'link');
+    var directLink = createLinkBlock('Прямая ссылка:', data.direct, 'directLink', 'link');
     var insideDiv = document.createElement('div');
     insideDiv.appendChild(directLink);
-    insideDiv.appendChild(markdownLink);
-    insideDiv.appendChild(htmlLink);
 
     var div = document.createElement('div');
     div.className = 'list-group-item';
