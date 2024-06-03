@@ -19,17 +19,15 @@ class MainHandler (tornado.web.RequestHandler):
 			file_path = os.path.join (file_path_small,finalName)
 			with open(file_path, 'wb') as f:
 				f.write(file['body'])
-			direct_url = 'https://storage.geekclass.ru/images/' + finalName
-			markdown_url = '![](https://storage.geekclass.ru/images/'+ finalName + ')'
-			html_url =  '<img src="https://storage.geekclass.ru/images/"'+finalName+'/>'
-			data ={"direct":direct_url, "markdown": markdown_url, "html" : html_url}
+			direct_url = 'https://storage.bricsportfolio.com/files/' + finalName
+			data ={"direct":direct_url}
 			self.write(json.dumps(data))
 
 
 settings = [
     (r'/', MainHandler),
     (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': os.path.join(os.path.dirname(os.path.realpath(__file__)),'static')}),
-    (r'/images/(.*)', tornado.web.StaticFileHandler, {'path': os.path.join(os.path.dirname(os.path.realpath(__file__)),'images')}),
+    (r'/files/(.*)', tornado.web.StaticFileHandler, {'path': os.path.join(os.path.dirname(os.path.realpath(__file__)),'files')}),
 ]
 app = tornado.web.Application(settings)
 app.listen(8083)
